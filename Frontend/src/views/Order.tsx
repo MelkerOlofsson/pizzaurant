@@ -7,7 +7,7 @@ function Order() {
   // const [stepNumber] = useState<number>(1);
   return (
     <>
-      <h2>Still in development</h2>
+      <h2 className="ordersection">Still in development</h2>
       {/* <ShoppingCartContext.Provider value={{ id: 0, amount: 0 }}>
       <section className="ordersection">
         <div className="ordercontainer">
