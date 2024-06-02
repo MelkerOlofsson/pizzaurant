@@ -15,7 +15,7 @@ const client = new Client({
 client.connect();
 
 const app = express();
-const port = process.env.port || 8001;
+const port = process.env.PORT || 8001;
 
 const corsOptions = {
   origin: "http://localhost:5173",
