@@ -1,0 +1,19 @@
+.deletesection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.deletefoodform,
+.deletedrinkform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #fff;
+  background-color: #d22b2e;
+  padding: 1rem;
+  border: solid black 2px;
+  border-radius: 1rem;
+}

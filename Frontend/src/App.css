@@ -1,0 +1,135 @@
+@font-face {
+  font-family: myFont;
+  src: url(/BabyGemoy-nARoV.ttf);
+}
+
+:root {
+  --primary-color: #d22b2e;
+  --secondary-color: #ccfef2;
+  --text-color: #455853;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "quicksand", sans-serif;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary-color);
+}
+
+main {
+  background-color: var(--secondary-color);
+}
+
+.copyright {
+  text-align: center;
+  background-color: #fada73;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.socials {
+  background: #d22b2e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid #000 2px;
+}
+
+footer {
+  background-color: var(--primary-color);
+}
+
+.creditlinkcontainer {
+  background-color: #fada73;
+}
+
+.creditlinkcontainer > h4 {
+  text-align: center;
+}
+
+.creditlinkcontainer > h4 > a {
+  color: #000;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 13px;
+}
+
+.wave .shape-fill {
+  fill: var(--primary-color);
+}
+
+nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-height: 8vh;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 20pt;
+  font-family: "quicksand", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  overflow: hidden;
+}
+
+.navLinks > * {
+  padding-right: 2rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navLinks > *:hover {
+  color: #fada73;
+}
+
+.navlinkitem:hover {
+  text-decoration: underline;
+}
+
+#loginlink {
+  justify-self: flex-end;
+}
+
+li > h1 {
+  color: rgb(255, 255, 255);
+  font-family: myFont, sans-serif;
+}
+
+.pizzaurantLogo {
+  margin: 0.25rem;
+  padding-left: 1rem;
+  width: 5rem;
+  height: 5rem;
+  transition: 300ms ease-out;
+}
+
+.pizzaurantLogo:hover {
+  transform: scale(1.1);
+}

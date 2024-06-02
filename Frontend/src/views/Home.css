@@ -1,0 +1,38 @@
+@font-face {
+  font-family: myFont;
+  src: url(/TouristTrap-r719.ttf);
+}
+
+.herosection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: #000 solid 2px;
+  gap: 25rem;
+  height: 92vh;
+  background: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.7)),
+    url(../assets/9438561.jpg) center/40% no-repeat;
+}
+
+.herosection > h1 {
+  background-color: #d22b2e;
+  padding: 2rem 2rem;
+  border-radius: 5rem;
+  border: solid #000 2px;
+  color: #fff;
+  font-family: myFont, sans-serif;
+  font-size: 60px;
+}
+
+.herosection > .menulink {
+  color: #fff;
+}
+
+.herosection > .menulink:hover {
+  color: #fada73;
+}
+
+.herosection > .menulink > h2 {
+  font-size: 50px;
+}

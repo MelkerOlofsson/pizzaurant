@@ -1,0 +1,15 @@
+.ordersection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 92vh;
+}
+
+.ordersection > h1 {
+  font-size: 50pt;
+}
+
+.ordercontainer {
+  flex-grow: 1;
+}
