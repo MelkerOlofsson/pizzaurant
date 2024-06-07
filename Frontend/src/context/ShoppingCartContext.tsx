@@ -1,14 +1,24 @@
-// import { createContext } from "react";
+import { createContext } from "react";
 
-// // interface ShoppingCartItem {
-// //   id: number;
-// //   amount: number;
-// // }
+export interface ShoppingCartItem {
+  id: number;
+  name: string;
+  amount: number;
+  type: string;
+}
 
-// // interface ShoppingCartContextType {
-// //   cart: ShoppingCartItem[];
-// //   addItem: (item: ShoppingCartItem) => void;
-// //   removeItem: (id: number) => void;
-// // }
+export interface ShoppingCartContextType {
+  cart: ShoppingCartItem[];
+  setCart: (item: ShoppingCartItem[]) => void;
+}
 
-// export default ShoppingCartContext;
+const defaultShoppingCartContext: ShoppingCartContextType = {
+  cart: [],
+  setCart: () => {},
+};
+
+const ShoppingCartContext = createContext<ShoppingCartContextType>(
+  defaultShoppingCartContext
+);
+
+export default ShoppingCartContext;

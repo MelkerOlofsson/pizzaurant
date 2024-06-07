@@ -326,6 +326,68 @@ app.post("/accounts", async (req: Request, res: Response) => {
   }
 });
 
+// ORDERS
+
+app.get("/order-list", async (req: Request, res: Response) => {
+  try {
+    // Hämtar samtlig orderdata och skickar tillbaka.
+    const orders = await client.query("SELECT * FROM orders ORDER BY id");
+    const foods = await client.query("SELECT * FROM food_ordered");
+    const drinks = await client.query("SELECT * FROM drink_ordered");
+    return res.send({
+      orders: orders.rows,
+      foods: foods.rows,
+      drinks: drinks.rows,
+    });
+  } catch (err) {
+    console.error("Error when fetching orders: " + err);
+  }
+});
+
+interface ShoppingCartItem {
+  id: number;
+  name: string;
+  amount: number;
+  type: string;
+}
+
+app.post("/confirm-order", async (req: Request, res: Response) => {
+  const takeaway = Number(req.body.orderDetails.takeaway);
+  console.log(req.body);
+  try {
+    // Skapar en order.
+    await client.query(
+      "INSERT INTO orders (takeaway, table_number) VALUES ($1, $2)",
+      [takeaway, req.body.orderDetails.tableNumber]
+    );
+
+    // Hämtar ordern.
+    const madeOrder = await client.query(
+      "SELECT * FROM orders ORDER BY id DESC LIMIT 1"
+    );
+
+    // För varje beställd vara så skapas det "beställda varor" i databasen som länkas till ordern som skapades.
+    req.body.cart.forEach(async (cartItem: ShoppingCartItem) => {
+      for (let i = 0; i < cartItem.amount; i++) {
+        if (cartItem.type === "food") {
+          await client.query(
+            "INSERT INTO food_ordered (order_id, food_item) VALUES ($1, $2)",
+            [madeOrder.rows[0].id, cartItem.id]
+          );
+        } else if (cartItem.type === "drink") {
+          await client.query(
+            "INSERT INTO drink_ordered (order_id, drink_item) VALUES ($1, $2)",
+            [madeOrder.rows[0].id, cartItem.id]
+          );
+        }
+      }
+    });
+    return res.status(201);
+  } catch (error) {
+    console.error("Error occured when creating order: " + error);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Up and running on port ${port}`);
 });

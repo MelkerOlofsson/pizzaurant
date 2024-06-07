@@ -2,3 +2,14 @@
   display: flex;
   gap: 1rem;
 }
+
+.itemlist {
+  margin: auto;
+}
+
+.drinkitems,
+.fooditems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -33,7 +33,7 @@ CREATE TABLE orders (
   takeaway INTEGER NOT NULL CHECK (takeaway IN (0,1)),
   table_number INTEGER CHECK (table_number IS NULL OR (table_number IS NOT NULL AND takeaway = 0)),
   customer_id INTEGER,
-  FOREIGN KEY (customer_id) REFERENCES customer(id)
+  FOREIGN KEY (customer_id) REFERENCES accounts(id)
 );
 
 CREATE TABLE food_ordered (

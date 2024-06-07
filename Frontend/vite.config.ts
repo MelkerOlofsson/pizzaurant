@@ -6,7 +6,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:8001",
+      "/foods": "http://localhost:8001",
+      "/drinks": "http://localhost:8001",
+      "/login": "http://localhost:8001",
+      "/logout": "http://localhost:8001",
+      "/verify-token": "http://localhost:8001",
+      "/accounts": "http://localhost:8001",
+      "/confirm-order": "http://localhost:8001",
+      "/order-list": "http://localhost:8001",
     },
   },
 });
